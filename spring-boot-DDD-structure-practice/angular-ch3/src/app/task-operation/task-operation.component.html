@@ -1,0 +1,27 @@
+<div class="rol" style="margin-top: 5%; margin-left: 31%;">
+    <button type="submit" class="btn btn-primary" (click)="logout()">Log out</button>
+
+</div>
+<div class="row row-cols-3" style="margin-top: 2%; margin-left: 5%;">
+    <div class="col">
+        <form style="margin-bottom: 30px;" [formGroup]="taskForm" (ngSubmit)="save()">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Task Name</label>
+                <input class="form-control" formControlName="name">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Task Description</label>
+                <input class="form-control" formControlName="description">
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!taskForm.valid"> Save </button>
+        </form>
+        <!-- [] send data to child component -->
+        <!-- (event) send data from child component to parent component -->
+        <!--     @Input  son        parant   @Output  son        parant -->
+        <app-task-list [inputTask]="testTask" (edit)="onEdit($event)"> </app-task-list>
+
+    </div>
+    <div class="col">
+    </div>
+    <div class="col"></div>
+</div>
